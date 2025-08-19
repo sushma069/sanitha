@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Portal - Login</title>
+  <style>
+    /* Animate the gradient background */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      /* Multi-color gradient */
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb, #a6c1ee);
+      background-size: 1200% 1200%;
+      animation: gradientShift 20s ease infinite;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background 0.3s ease;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 320px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #ff6f61;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #ff6f61;
+      outline: none;
+      box-shadow: 0 0 5px #ff6f61;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+
+    button:hover {
+      background-color: #e65c4f;
+    }
+
+    .error {
+      color: #b22222;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      min-height: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>🎉 Birthday Portal</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <div class="error" id="errorMsg"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent form submission
+
+      const username = document.getElementById('username').value.trim().toLowerCase();
+      const password = document.getElementById('password').value;
+
+      // Only allow "sanitha" with password "sanisushma"
+      if (username === 'sanitha' && password === 'sanisushma') {
+        window.location.href = "msg1.html"; // redirect to birthday message page
+      } else {
+        errorMsg.textContent = "Invalid username or password.";
+      }
+    });
+  </script>
+</body>
+</html>
